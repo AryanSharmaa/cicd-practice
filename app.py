@@ -1,1 +1,6 @@
-print("Hello from CI/CD Pipeline!")
+
+def greet():
+    return "Hello from CI/CD Pipeline!"
+
+print(greet())
+

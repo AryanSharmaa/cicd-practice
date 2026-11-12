@@ -21,3 +21,6 @@ jobs:
       - name: Run Python application
         run: python app.py
 
+      - name: Run automated tests
+        run: python -m unittest test_app.py -v
+
