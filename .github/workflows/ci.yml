@@ -26,6 +26,32 @@ jobs:
         run: python -m unittest test_app.py -v
 
 
+      - name: Package application
+        run: |
+          mkdir -p dist
+          zip -j dist/python-app.zip app.py
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-app
+          path: dist/python-app.zip
+
+
+  inspect-artifact:
+    needs: run-python
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: python-app
+
+      - name: Inspect artifact
+        run: unzip -l python-app.zip
+
+
   report:
     needs: run-python
     runs-on: ubuntu-latest
