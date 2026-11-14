@@ -1,5 +1,5 @@
 
 def greet():
-    return "Unexpected message!"
-print(greet())
+    return "Hello from CI/CD Pipeline!"
 
+print(greet())
