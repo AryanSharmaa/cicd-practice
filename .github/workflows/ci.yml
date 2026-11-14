@@ -25,3 +25,11 @@ jobs:
       - name: Run automated tests
         run: python -m unittest test_app.py -v
 
+
+  report:
+    needs: run-python
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report result
+        run: echo "All Python checks passed!"
+
